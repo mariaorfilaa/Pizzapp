@@ -31,6 +31,24 @@ h1{
     width: 200px;
     margin: 0 auto;
 }
+.hamburger{
+    display: block;
+    position: fixed;
+    right: 1em;
+}
+.desplegable{
+    padding: 0.5em;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 20em;
+    top: 1em;
+    z-index: 1000;
+    max-width: 1%;
+    max-height: 1%;
+}
+
 img{
     width: 300px;
     margin: 0 auto;
@@ -48,12 +66,12 @@ img{
 }
 
 button{
-   
-    margin: auto;
+    margin: 0 auto;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
     text-align: center;
     padding: 5px;
     border-radius: 8px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serifç;
-
 }
