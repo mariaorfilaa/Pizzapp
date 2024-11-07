@@ -44,9 +44,6 @@ h1{
     position: absolute;
     right: 20em;
     top: 1em;
-    z-index: 1000;
-    max-width: 1%;
-    max-height: 1%;
 }
 
 img{
@@ -74,4 +71,87 @@ button{
     padding: 5px;
     border-radius: 8px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serifç;
+}
+
+.titol{
+    margin-bottom: 0;
+    font-size: 2.5rem;
+    padding-top: 15rem;
+}
+.titol-intro{
+    color: rgb(255, 255, 255);
+    margin: 0;
+    font-weight: 1000;
+    padding-top: 15rem;
+}
+.subtitol{
+    color: rgb(48, 3, 3);
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+
+.subtitol-intro{
+    background-color: brown;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: -9.5rem;
+    padding: 0.25em 1em;
+}
+.titol-intro strong{
+    display: block;
+}
+
+.intro{
+    position: relative;
+}
+
+    @media (min-width: 600px){
+        .intro{
+            display: grid;
+            margin: 0 auto;
+            width: min-content;
+            grid-column-gap: 1em;
+            grid-template-areas:
+            "img title"
+            "img subtitle";
+            grid-template-columns: min-content max-content;
+        }
+        .intro-img{
+            grid-area: img;
+            min-width: 400px;
+            position: relative;
+            padding-top: 15rem;
+            z-index: 2;
+    
+        }
+        .subtitol-intro{
+            align-self: start;
+            grid-column: -1/1;
+            grid-row: 2;
+            text-align: right;
+            position: relative;
+            left: -1.5em;
+            width: calc(100% + 1.5em);
+        }
+    }
+.subtitol-intro{
+    display: inline-block;
+}
+.toppings{
+    position: relative;
+    right: 5rem;
+    left: 17rem;
+    top: -16rem;
+}
+
+@media (min-width: 600px){
+    .toppings{
+        display: grid;
+        margin: 0 auto;
+        width: min-content;
+        grid-column-gap: 7em;
+        grid-template-areas:
+        "text btn"
+        "text btn";
+        grid-template-columns: max-content max-content;
+    }
 }
