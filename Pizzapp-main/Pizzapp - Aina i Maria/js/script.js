@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebas
 import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const input = document.getElementById("inputField")
-const boto =  document.getElementById("afegir")
+const boto =  document.getElementById("Afegir")
 const lista =  document.getElementById("pizzas")
 
 const appConfiguracio = {
@@ -11,24 +11,47 @@ const appConfiguracio = {
 
 const app = initializeApp (appConfiguracio);
 const baseDades = getDatabase (app);
-const task = ref(baseDades, "carrito");
+const pizzas = ref(baseDades, "PIZZAS");
 
-boto.addEventListener("click", function (){
-    push (task, input.value);
-})
 
-onValue (task, function (snapshot){
+
+onValue (pizzas, function (snapshot){
 
     if (snapshot.exists()) {
-        let resultats = Object.entries (snapshot.val ())
-        clearList()
-        console.log ()
-        for (let i = 0; i < resultats.length; i++) {
-            let current = resultats[i]
+        let resultats = Object.entries (snapshot.val())
+    
+       for (let i = 0; i < resultats.length; i++) {
+
             addElement(resultats[i])
-        }  
-    }else{
-        lista.innerHTML = "Add something"
+        }
     }
+
 })
 
+
+ function addElement(e){
+    let l = document.createElement("a");
+    l.href=e[1].url
+    let cont = document.createElement("div")
+    let imag = document.createElement("img");
+    let titol = document.createElement("h1");
+    let buton = document.createElement("button");
+
+    cont.classList += "container0"
+    imag.src = e[1].IMG
+    imag.classList += "container img"
+    titol.textContent = e[1].NOM
+    
+    buton.textContent = "Añadir al Carrito"
+    buton.classList += "addcarrito"
+
+    let m = document.getElementById("maria");
+    l.appendChild(imag)
+    cont.appendChild(l)
+    cont.appendChild(titol)
+    cont.appendChild(buton)
+    m.appendChild(cont);
+    
+
+
+}
