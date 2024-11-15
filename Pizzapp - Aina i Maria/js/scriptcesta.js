@@ -2,6 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebas
 import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const carro = document.getElementById("carrito")
+const buton = document.getElementById("Afegir")
 
 const appConfiguracio = {
     databaseURL: "https://pizzapp-1b275-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -13,6 +14,9 @@ const carrito = ref(baseDades, "CARRITO");
 
 
 function addElement (e){
+    let l = document.createElement("a");
+
+    let buton = document.createElement("button");
 
     let elementFoto = document.createElement("img");
     
@@ -21,9 +25,14 @@ function addElement (e){
     elementFoto.src = e[1].imatge
     elementLlista.textContent=e[1].nom
 
+    buton.textContent = "Comprar pedido"
+    buton.classList += "addcarrito"
+
+
     carro.appendChild(elementFoto);
     carro.appendChild(elementLlista);
 
+   
 }
 
 

@@ -201,26 +201,25 @@ button:hover{
 
 
 .xavi{
+    width: 90%;
+    margin-left: 25rem;
+    height: 400px;
+    max-width: 500px;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax (300px,1fr));
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows:  1fr;
 }
 
 @media (min-width:600px){
     .xavi{
-            display: grid;
-            margin: 0 auto;
-            width: max-content;
-            grid-template-columns: 1fr 320px;
 
-            grid-template-areas:
-            "img text"
-            "img text";
-            grid-template-columns: min-content max-content;
+         grid-template-areas:
+            "img img"
+            "title title";
+        
         }
     
 }
 
-    .xavi img{
-       width: 150px;
-    }
   
