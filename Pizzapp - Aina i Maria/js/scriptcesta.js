@@ -14,26 +14,27 @@ const carrito = ref(baseDades, "CARRITO");
 
 
 function addElement (e){
-    let l = document.createElement("a");
-
-    let buton = document.createElement("button");
-
+    let c = document.createElement("div")
+    c.classList+="col-3"
+    //let l = document.createElement("a");
     let elementFoto = document.createElement("img");
-    
     let elementLlista = document.createElement("li");
+
 
     elementFoto.src = e[1].imatge
     elementLlista.textContent=e[1].nom
 
-    buton.textContent = "Comprar pedido"
-    buton.classList += "addcarrito"
 
 
-    carro.appendChild(elementFoto);
-    carro.appendChild(elementLlista);
+    c.appendChild(elementFoto)
+    c.appendChild(elementLlista)
 
-   
+
+    carro.appendChild(c)
+    
 }
+
+
 
 
 onValue(carrito, function (snapshot) {
@@ -42,10 +43,13 @@ onValue(carrito, function (snapshot) {
         let resultats = Object.entries(snapshot.val())
         console.log(resultats)
 
+
         for (let i = 0; i < resultats.length; i++) {
 
             addElement(resultats[i])
         }
+    }else{
+        carro.innerHTML = "Añade unas pizzas al carrito..."
     }
 
 })
