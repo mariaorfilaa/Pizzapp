@@ -13,6 +13,7 @@ const app = initializeApp(appConfiguracio);
 const baseDades = getDatabase(app);
 const pizzas = ref(baseDades, "PIZZAS");
 const carrito = ref(baseDades, "CARRITO");
+const toppings = ref (baseDades, "TOPPINGS")
 
 
 
@@ -50,6 +51,7 @@ function addElement(e) {
     var myPizza = new Object();
     myPizza.nom = e[1].NOM;
     myPizza.imatge = e[1].IMG;
+    myPizza.preu = e[1].PREU;
 
 
     buton.addEventListener("click", function () {
@@ -61,6 +63,7 @@ function addElement(e) {
     cont.appendChild(l)
     cont.appendChild(titol)
     cont.appendChild(buton)
+   
     m.appendChild(cont);
 
 
