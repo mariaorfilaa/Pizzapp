@@ -33,8 +33,6 @@ function addElement (e){
 }
 
 
-
-
 onValue(carrito, function (snapshot) {
 
     if (snapshot.exists()) {

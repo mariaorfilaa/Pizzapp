@@ -197,7 +197,7 @@ button:hover{
     justify-content: center;
     text-align: center;
     padding: 5px;
-    margin-bottom: 3rem;
+    margin-bottom: 0.25rem;
     border-radius: 6px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serifç;
     color: rgb(48, 3, 3);
@@ -234,8 +234,5 @@ button:hover{
     text-align: center;
     align-content: center;
     margin: 0 auto;
-}
-li{
-    margin-bottom: 3rem;
 }
 

@@ -51,10 +51,12 @@ function addElement(e) {
     var myPizza = new Object();
     myPizza.nom = e[1].NOM;
     myPizza.imatge = e[1].IMG;
-    myPizza.preu = e[1].PREU;
+    myPizza.preu = e[1].Preu;
 
 
     buton.addEventListener("click", function () {
+        console.log(carrito)
+        console.log(myPizza)
         push(carrito, myPizza);
     })
 

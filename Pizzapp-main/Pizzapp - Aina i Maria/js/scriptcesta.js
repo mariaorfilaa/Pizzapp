@@ -8,6 +8,8 @@ const appConfiguracio = {
     databaseURL: "https://pizzapp-1b275-default-rtdb.europe-west1.firebasedatabase.app/"
 }
 
+let pedido = 0;
+
 const app = initializeApp(appConfiguracio);
 const baseDades = getDatabase(app);
 const carrito = ref(baseDades, "CARRITO");
@@ -20,10 +22,20 @@ function addElement (e){
     let elementFoto = document.createElement("img");
     let elementLlista = document.createElement("li");
     let elementPreu = document.createElement("li");
+
+    pedido += parseFloat(e[1].preu);
+    document.getElementById("total").innerHTML = pedido
+
+
     
 elementFoto.addEventListener("click",function(){
+    pedido -= parseFloat(e[1].preu);
+    document.getElementById("total").innerHTML = pedido
     let localitzacioItem = ref (baseDades, `CARRITO/${e[0]}`)
         remove (localitzacioItem)
+        
+
+
 })
 
     elementFoto.src = e[1].imatge
@@ -47,7 +59,7 @@ function clearList (){
 
 
 onValue(carrito, function (snapshot) {
-
+    pedido = 0;
     if (snapshot.exists()) {
         let resultats = Object.entries(snapshot.val())
         console.log(resultats)
